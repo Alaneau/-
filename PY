@@ -34,3 +34,20 @@ def generate_code(code_len=4):
         index = random.randint(0, last_pos)
         code += all_chars[index]
     return code
+    
+    
+    提取文件后缀：
+    def get_suffix(filename, has_dot=False):#默认不带点
+    """
+    获取文件名的后缀名
+
+    :param filename: 文件名
+    :param has_dot: 返回的后缀名是否需要带点
+    :return: 文件的后缀名
+    """
+    pos = filename.rfind('.')#pos的值为filename中.的位置
+    if 0 < pos < len(filename) - 1:
+        index = pos if has_dot else pos + 1#pos+1的情况是值.的后面那个字符，对应不要点的情况
+        return filename[index:]#从第index位开始输出
+    else:#如果pos不在指定指，即.在filename中不存在
+        return ''
